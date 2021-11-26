@@ -10,54 +10,56 @@
 </head>
 <body class="debug">
     
-    <div class="main-container">
+    <div id="root">
+        <div class="main-container">
 
-        <div class="container">
-
-            <div class="main-cont">
-                <!-- <div class="item">
-                    <img src="img/01.jpg" alt="Svezia">
-                    <div class="img-text">
-                        <h1>Svezia</h1>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.</p>
+            <div class="container">
+    
+                <div class="main-cont">
+                    <div class="item active" v-for="elemento in elementi">
+                        <img :src="elemento.immagine" :alt="elemento.titolo">
+                        <div class="img-text">
+                            <h1>{{elemento.titolo}}</h1>
+                            <p>{{elemento.testo}}</p>
+                        </div>
                     </div>
-                </div> -->
-                
+                    
+                </div>
+    
+                <div class="slider">
+    
+                    <!-- frecce -->
+                    <button class="arrow up"><i class="fas fa-chevron-up"></i></button>
+                    <button class="arrow down"><i class="fas fa-chevron-down"></i></button>
+    
+                    <!-- immagini -->
+                    <div class="img-container" v-for="elemento in elementi">
+                        <div class="overlay"></div>
+                        <img :src="elemento.immagine" :alt="elemento.titolo">
+                    </div>
+                    <!-- <div class="img-container">
+                        <div class="overlay"></div>
+                        <img src="img/02.jpg" alt="Svizzera">
+                    </div>
+                    <div class="img-container">
+                        <div class="overlay"></div>
+                        <img src="img/03.jpg" alt="Gran Bretagna">
+                    </div>
+                    <div class="img-container">
+                        <div class="overlay"></div>
+                        <img src="img/04.jpg" alt="Germania">
+                    </div>
+                    <div class="img-container">
+                        <div class="overlay"></div>
+                        <img src="img/05.jpg" alt="Paradise">
+                    </div> -->
+                </div>
+    
             </div>
-
-            <div class="slider">
-
-                <!-- frecce -->
-                <!-- <button class="arrow up"><i class="fas fa-chevron-up"></i></button>
-                <button class="arrow down"><i class="fas fa-chevron-down"></i></button> -->
-
-                <!-- immagini -->
-                <!-- <div class="img-container">
-                    <div class="overlay"></div>
-                    <img src="img/01.jpg" alt="Svezia">
-                </div>
-                <div class="img-container">
-                    <div class="overlay"></div>
-                    <img src="img/02.jpg" alt="Svizzera">
-                </div>
-                <div class="img-container">
-                    <div class="overlay"></div>
-                    <img src="img/03.jpg" alt="Gran Bretagna">
-                </div>
-                <div class="img-container">
-                    <div class="overlay"></div>
-                    <img src="img/04.jpg" alt="Germania">
-                </div>
-                <div class="img-container">
-                    <div class="overlay"></div>
-                    <img src="img/05.jpg" alt="Paradise">
-                </div> -->
-            </div>
-
+    
         </div>
-
     </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="js/vue-script.js"></script>
 </body>
