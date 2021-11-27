@@ -34,7 +34,7 @@
                     <button class="arrow down" @click = nextImage()><i class="fas fa-chevron-down"></i></button>
     
                     <!-- immagini -->
-                    <div class="img-container" v-for="(elemento, indice) in elementi" :class="indice == currentImage ? 'selected' : ''">
+                    <div class="img-container" v-for="(elemento, indice) in elementi" :class="indice == currentImage ? 'selected' : ''" @click = showImage(indice)>
                         <div class="overlay" :class="indice == currentImage ? 'no-overlay' : ''"></div>
                         <img :src="elemento.immagine" :alt="elemento.titolo">
                     </div>

@@ -87,6 +87,9 @@ const app = new Vue({
             }else{
                 this.currentImage--;
             }
+        },
+        showImage: function(index){
+            this.currentImage = index;
         }
     }
 });
