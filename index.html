@@ -16,11 +16,12 @@
             <div class="container">
     
                 <div class="main-cont">
-                    <div class="item active" v-for="elemento in elementi">
-                        <img :src="elemento.immagine" :alt="elemento.titolo">
+                    <div class="item active">
+                        <img :src="elementi[currentImage].immagine" :alt="elementi[currentImage].titolo">
                         <div class="img-text">
-                            <h1>{{elemento.titolo}}</h1>
-                            <p>{{elemento.testo}}</p>
+                            <h1>{{elementi[currentImage].titolo}}</h1>
+                            <p>{{elementi[currentImage].testo}}</p>
+
                         </div>
                     </div>
                     
@@ -29,12 +30,12 @@
                 <div class="slider">
     
                     <!-- frecce -->
-                    <button class="arrow up"><i class="fas fa-chevron-up"></i></button>
-                    <button class="arrow down"><i class="fas fa-chevron-down"></i></button>
+                    <button class="arrow up" @click = prevImage()><i class="fas fa-chevron-up"></i></button>
+                    <button class="arrow down" @click = nextImage()><i class="fas fa-chevron-down"></i></button>
     
                     <!-- immagini -->
-                    <div class="img-container" v-for="elemento in elementi">
-                        <div class="overlay"></div>
+                    <div class="img-container" v-for="(elemento, indice) in elementi" :class="indice == currentImage ? 'selected' : ''">
+                        <div class="overlay" :class="indice == currentImage ? 'no-overlay' : ''"></div>
                         <img :src="elemento.immagine" :alt="elemento.titolo">
                     </div>
                     <!-- <div class="img-container">

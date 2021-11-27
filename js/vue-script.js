@@ -40,37 +40,53 @@
 //     }
 // ];
 
-const app = new Vue(
-    {
-        el: '#root',
-        data: {
-            elementi: [
-                {
-                    titolo : 'Svezia',
-                    immagine : 'img/01.jpg',
-                    testo : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.' 
-                },
-                {
-                    titolo : 'Svizzera',
-                    immagine : 'img/02.jpg',
-                    testo : 'Lorem ipsum' 
-                },
-                {
-                    titolo : 'Gran Bretagna',
-                    immagine : 'img/03.jpg',
-                    testo : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.' 
-                },
-                {
-                    titolo : 'Germania',
-                    immagine : 'img/04.jpg',
-                    testo : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,' 
-                },
-                {
-                    titolo : 'Paradise',
-                    immagine : 'img/01.jpg',
-                    testo : 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,' 
-                }
-            ]
+const app = new Vue({
+    el: '#root',
+    data: {
+        elementi: [
+            {
+                titolo : 'Svezia',
+                immagine : 'img/01.jpg',
+                testo : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.' 
+            },
+            {
+                titolo : 'Svizzera',
+                immagine : 'img/02.jpg',
+                testo : 'Lorem ipsum' 
+            },
+            {
+                titolo : 'Gran Bretagna',
+                immagine : 'img/03.jpg',
+                testo : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.' 
+            },
+            {
+                titolo : 'Germania',
+                immagine : 'img/04.jpg',
+                testo : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,' 
+            },
+            {
+                titolo : 'Paradise',
+                immagine : 'img/01.jpg',
+                testo : 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,' 
+            }
+        ],
+        currentImage: 0,
+            
+    },
+    methods: {
+        nextImage: function(){
+            if(this.currentImage == this.elementi.length-1){
+                this.currentImage = 0;
+            }else{
+                this.currentImage++;
+            }
         },
+        prevImage: function(){
+            if(this.currentImage == 0){
+                this.currentImage = this.elementi.length -1;
+            }else{
+                this.currentImage--;
+            }
+        }
     }
-);
+});
